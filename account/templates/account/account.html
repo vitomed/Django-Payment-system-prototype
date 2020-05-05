@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Account{% endblock %}
+{% block content %}
+<h1>Personal Account</h1>
+<p>Welcome, {{ balance_form.instance.user.username }}!</p>
+<div class="login-form">
+    {{ balance_form.as_table }}
+    {% csrf_token %}
+</div>
+{% endblock %}
