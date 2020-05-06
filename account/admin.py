@@ -5,4 +5,3 @@ from account.models import MyUser, Balance, Transfer
 admin.site.register(MyUser, UserAdmin)
 admin.site.register(Balance)
 admin.site.register(Transfer)
-

@@ -33,12 +33,14 @@ class TransferView(View):
 
     @transaction.atomic
     def post(self, request):
-        transfer_form = self._transfer_form(request.POST)
+        transfer_form = self._transfer_form(data=request.POST)
+        sender = request.user
         if transfer_form.is_valid():
             new_transfer = transfer_form.save(commit=False)
-            new_transfer.user = request.user
+            new_transfer.sender = getattr(sender, '_wrapped')
             new_transfer.save()
             new_transfer.conversion()
+            messages.info(request, f'Transfer to "{new_transfer.payee.get_username()}", successfully completed!')
             return redirect('/account/')
 
 

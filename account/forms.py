@@ -33,6 +33,7 @@ class BalanceForm(forms.ModelForm):
 
 
 class TransferForm(forms.ModelForm):
+
     class Meta:
         model = Transfer
-        fields = ('user_to', 'currency_from', 'currency_to', 'value')
+        fields = ('payee', 'senders_currency', 'payee_currency', 'value')
