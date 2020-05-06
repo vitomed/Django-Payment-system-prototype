@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Account{% endblock %}
+{% block content %}
+<h1>Personal Account</h1>
+<p>Please, choice fields</p>
+<form action="." method="post">
+    {{ transfer_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Transfer money"></p>
+</form>
+{% endblock %}

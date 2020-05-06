@@ -4,6 +4,7 @@ from django.views import View
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.db import transaction
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from account.forms import RegistrationForm, BalanceForm, TransferForm
 
@@ -15,14 +16,7 @@ def account(request):
     return render(request, 'account/account.html', context=context)
 
 
-# @login_required  # FIXME
-# def transfer(request):
-#     transfer_form = TransferForm()
-#     context = {'transfer_form': transfer_form, 'section':'transfer'}
-#     return render(request, 'account/transfer.html', context=context)
-
-
-class TransferView(View):
+class TransferView(LoginRequiredMixin, View):
 
     _transfer_form = TransferForm
 
