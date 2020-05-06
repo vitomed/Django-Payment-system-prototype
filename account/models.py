@@ -62,6 +62,6 @@ class Transfer(models.Model):
             coeff_curse = 1
 
         sender_account = -(self.value + coeff_commission * self.value)
-        payee_account = abs(sender_account) * coeff_curse
+        payee_account = abs(self.value) * coeff_curse
         self.sender.balance.update_balance(currency=self.senders_currency, value=sender_account)
         self.payee.balance.update_balance(currency=self.payee_currency, value=payee_account)

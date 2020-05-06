@@ -31,10 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'djmoney',
-    'djmoney.contrib.exchange',
     'account',
-    'operations',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,11 +127,3 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 AUTH_USER_MODEL = 'account.MyUser'
-
-CURRENCIES = ('USD', 'EUR', 'RUB')
-
-EXCHANGE_BACKEND = 'djmoney.contrib.exchange.backends.FixerBackend'
-
-OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/historical/2017-01-01.json?symbols=EUR,NOK,SEK,CZK'
-
-FIXER_URL = 'http://data.fixer.io/api/2013-12-24?symbols=EUR,NOK,SEK,CZK'
